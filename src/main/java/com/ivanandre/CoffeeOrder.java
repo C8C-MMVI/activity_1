@@ -6,7 +6,8 @@ import java.util.Scanner;
 public class CoffeeOrder {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int orderNumber;
+        int [] orderNumber = new int [5];
+        int [] quantity = new int [5];
         String menu = """
                 --- Coffee Menu ---
                 1. Espresso - 50.00 PHP
@@ -18,18 +19,23 @@ public class CoffeeOrder {
             System.out.println(menu);
             System.out.print("Choose your coffee (1-4), or 0 to finish): ");
             try {
-                orderNumber = input.nextInt();
-                if (orderNumber > 0 && orderNumber <= 4) {
-                    System.out.print("Enter quantity: ");
-                    int quantity = input.nextInt();
-                    System.out.println();
-                } else if (orderNumber == 0){
-                    System.out.println("Thank you for ordering. Here's your receipt: ");
-                    // printReceipt();
-                    break;
-                } else {
-                    System.out.println("Invalid choice. Please try again\n");
+                for(int i = 0; i < orderNumber.length; i++){
+                    orderNumber [i] = input.nextInt();
+                    if (orderNumber [i] > 0 && orderNumber[i] <= 4) {
+                        System.out.print("Enter quantity: ");
+                        for (int j = 0; j < quantity.length; j++){
+                            quantity [j] = input.nextInt();
+                        }
+                        System.out.println();
+                    } else if (orderNumber [i] == 0){
+                        System.out.println("Thank you for ordering. Here's your receipt: ");
+                        // printReceipt();
+                        break;
+                    } else {
+                        System.out.println("Invalid choice. Please try again\n");
+                    }
                 }
+
             } catch (Exception e) {
                 System.out.println("Invalid choice. Please try again\n");
                 input.nextLine();
@@ -40,7 +46,7 @@ public class CoffeeOrder {
 
     /**
      * Method for printing receipt
-     * @param quantities
+     * @param quantities stores data and prints
      */
     public static void printReceipt (int [] quantities){
         double [] prices = {50.00, 70.00, 65.00, 80.00};
