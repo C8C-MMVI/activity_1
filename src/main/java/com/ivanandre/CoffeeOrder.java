@@ -25,6 +25,7 @@ public class CoffeeOrder {
                         System.out.print("Enter quantity: ");
                         for (int j = 0; j < quantity.length; j++){
                             quantity [j] = input.nextInt();
+                            // Needs loop break upon entering quantity
                         }
                         System.out.println();
                     } else if (orderNumber [i] == 0){
