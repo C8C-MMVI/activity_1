@@ -1,5 +1,5 @@
 
-package com.ivanandre;
+package com.coffeemenu;
 
 import java.util.Scanner;
 
