@@ -1,4 +1,3 @@
-
 package com.coffeemenu;
 
 import java.util.Scanner;
@@ -19,25 +18,26 @@ public class CoffeeOrder {
             System.out.println(menu);
             System.out.print("Choose your coffee (1-4), or 0 to finish): ");
             try {
-                for(int i = 0; i < orderNumber.length; i++){
-                    orderNumber [i] = input.nextInt();
-                    if (orderNumber [i] > 0 && orderNumber[i] <= 4) {
+                for (int i = 0; i < orderNumber.length; i++) {
+                    orderNumber[i] = input.nextInt();
+                    if (orderNumber[i] > 0 && orderNumber[i] <= 4) {
                         System.out.print("Enter quantity: ");
-                        for (int j = 0; j < quantity.length; j++){
-                            quantity [j] = input.nextInt();
+                        for (int j = 0; j < quantity.length; j++) {
+                            quantity[j] = input.nextInt();
                             // Needs loop break upon entering quantity
                         }
                         System.out.println();
-                    } else if (orderNumber [i] == 0){
+                    } else if (orderNumber[i] == 0) {
                         System.out.println("Thank you for ordering. Here's your receipt: ");
                         // printReceipt();
                         break;
                     } else {
                         System.out.println("Invalid choice. Please try again\n");
+                        System.out.println(menu);
+                        System.out.print("Choose your coffee (1-4), or 0 to finish): ");
                     }
                 }
-
-            } catch (Exception e) {
+            } catch (Exception e){
                 System.out.println("Invalid choice. Please try again\n");
                 input.nextLine();
             }
