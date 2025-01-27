@@ -32,7 +32,7 @@ public class Main {
                 System.out.println("The result is " + result);
             }
             case "/" -> {
-                result = num1 + num2;
+                result = num1 / num2;
                 System.out.println("The result is " + result);
             }
             default -> {
@@ -43,8 +43,7 @@ public class Main {
 
         System.out.print("Enter a distance in km: ");
         double km = input.nextInt();
-        final double MILE_CONVERSION = 1.6;
-        System.out.println(km + " km is " + (km / MILE_CONVERSION) + " mi");
+        System.out.println(km + " km is " + (km / 1.609) + " mi");
 
         System.out.print("Enter a number: ");
         int num = input.nextInt();

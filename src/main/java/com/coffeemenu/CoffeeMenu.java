@@ -37,7 +37,7 @@ public class CoffeeMenu {
         } while (choice != 0);
 
         saveReceiptToFile(quantities);
-       input.close();
+        input.close();
     }
 
     public static void saveReceiptToFile(int[] quantities) {
@@ -46,22 +46,26 @@ public class CoffeeMenu {
         double subtotal = 0.0;
         StringBuilder receipt = new StringBuilder();
 
-        System.out.println("\n--- Coffee Order Receipt ---\n");
+        receipt.append("\n--- Coffee Order Receipt ---\n");
         for (int i = 1; i < quantities.length; i++) {
             if (quantities[i] > 0) {
                 double itemTotal = quantities[i] * prices[i];
-                System.out.printf("%d x %s @ %.2f each = %.2f PHP\n", quantities[i], names[i], prices[i], itemTotal);
+                receipt.append(String.format("""
+                        %d x %s @ %.2f each = %.2f PHP
+                        """, quantities[i], names[i], prices[i], itemTotal));
                 subtotal += itemTotal;
             }
         }
         double vat = subtotal * 0.12;
         double grandTotal = subtotal + vat;
 
-        System.out.println("---------------------");
-        System.out.printf("Subtotal: %.2f PHP\n", subtotal);
-        System.out.printf("VAT (12%%): %.2f PHP\n", vat);
-        System.out.printf("Grand Total: %.2f PHP\n", grandTotal);
-        System.out.println("---------------------\n");
+        receipt.append(String.format("""
+                ---------------------
+                Subtotal: %.2f PHP
+                VAT (12%%): %.2f PHP
+                Grand Total: %.2f PHP
+                ---------------------
+                """, subtotal, vat, grandTotal));
 
         try (FileWriter writer = new FileWriter("coffeeReceipt.txt")) {
             writer.write(receipt.toString());
