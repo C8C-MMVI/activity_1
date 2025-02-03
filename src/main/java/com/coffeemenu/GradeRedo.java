@@ -57,7 +57,7 @@ public class GradeRedo{
         StringBuilder sb = new StringBuilder();
         sb.append("Name: ").append(name).append("\n");
         //program prints header
-        sb.append(String.format("%-13s%-8s%-9s%-6s%15s\n", "Subject", terms[0], terms[1], terms[2], "Final Rating"));
+        sb.append(String.format("%-13s%-8s%5s%11s%16s\n", "Subject", terms[0], terms[1], terms[2], "Final Rating"));
         // first column is subject[i]
         for(int i = 0; i < TOTAL_SUBJECTS; i++) {
             if(subjects[i] == null) break;
