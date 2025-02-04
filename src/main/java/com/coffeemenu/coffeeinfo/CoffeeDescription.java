@@ -1,8 +1,8 @@
 package com.coffeemenu.coffeeinfo;
 
 public class CoffeeDescription {
-    String name;
-    String type;
+    String [] name = {"Espresso", "Latte", "Cappuccino", "Mocha"};
+    String [] type = {"Robusta", "Arabica", "Excelsa", "Liberica"};
     String size;
     int price;
     String roastLevel;
