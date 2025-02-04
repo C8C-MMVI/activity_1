@@ -3,12 +3,12 @@ package com.coffeemenu.coffeeinfo;
 public class CoffeeDescription {
     String [] name = {"Espresso", "Latte", "Cappuccino", "Mocha"};
     String [] type = {"Robusta", "Arabica", "Excelsa", "Liberica"};
-    String size;
+    String [] size = {"Short", "Tall", "Grande", "Venti"};
     int price;
-    String roastLevel;
+    String [] roastLevel = {"Light", "Medium", "Dark"};
     String origin;
     boolean isDecaf;
     boolean stock;
-    String flavorNotes;
+    String [] flavorNotes = {"Chocolate", "Citrus", "Nutty"};
     String brewMethod;
 }
