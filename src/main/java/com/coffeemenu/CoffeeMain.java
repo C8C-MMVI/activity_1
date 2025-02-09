@@ -23,53 +23,56 @@ public class CoffeeMain {
             displayMenu();
 
             System.out.print("Choose your coffee (1-" + CoffeeMenu.length + ", or 0 to finish): ");
-            int choice;
+            int [][] coffeeOrder = new int[5][2];
             try {
-                choice = Integer.parseInt(scanner.nextLine());
-                if (choice == 0) {
-                    break;
-                }
-                if (choice < 1 || choice > CoffeeMenu.length) {
-                    System.out.println("Invalid choice. Please try again.");
-                    continue;
-                }
+                for (int i = 0; i < coffeeOrder.length; i++){
+                    coffeeOrder [i][0] = Integer.parseInt(scanner.nextLine());
+                    if (coffeeOrder [i][0] == 0){
+                        break;
+                    }
+                    if (coffeeOrder [i][0] < 1 || coffeeOrder [i][0] > 4) {
+                        System.out.println("Invalid choice. Please try again.");
+                        continue;
+                    }
 
-                System.out.print("Enter quantity: ");
-                int quantity = Integer.parseInt(scanner.nextLine()); // This is better to avoid discarding next line character
-                if (quantity < 1) {
-                    System.out.println("Quantity must be at least 1. Please try again.");
-                    continue;
-                }
+                    System.out.print("Enter quantity: ");
+                    coffeeOrder [i] [1] = Integer.parseInt(scanner.nextLine()); // This is better to avoid discarding next line character
+                    if (coffeeOrder [i] [1] < 1) {
+                        System.out.println("Quantity must be at least 1. Please try again.");
+                        continue;
+                    }
 
-                orderCount[choice - 1] += quantity;
+                    orderCount[coffeeOrder [i][0] - 1] += coffeeOrder [i][1];
+
+                }
 
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please enter a number.");
             }
-        }
-
-        //Summarize the order
-        for(int i = 0; i < CoffeeMenu.length; i++) {
-            if(orderCount[i] > 0) {
-                double itemTotal = CoffeePrices[i] * orderCount[i];
-                total += itemTotal;
-                receipt.append(String.format("%d x %s @ %.2f each = %.2f\n", orderCount[i], CoffeeMenu[i], CoffeePrices[i], itemTotal));
+            //Summarize the order
+            for(int i = 0; i < CoffeeMenu.length; i++) {
+                if (orderCount[i] > 0) {
+                    double itemTotal = CoffeePrices[i] * orderCount[i];
+                    total += itemTotal;
+                    receipt.append(String.format("%d x %s @ %.2f each = %.2f\n", orderCount[i], CoffeeMenu[i], CoffeePrices[i], itemTotal));
+                }
             }
+            double vat = total * VAT_RATE;
+            double grandTotal = total + vat;
+
+            receipt.append("---------------------------\n");
+            receipt.append(String.format("Subtotal: %.2f\n", total));
+            receipt.append(String.format("VAT (12%%): %.2f\n", vat));
+            receipt.append(String.format("Grand Total: %.2f\n", grandTotal));
+            receipt.append("---------------------------\n");
+
+            System.out.println(receipt);
+
+            saveReceiptToFile(receipt.toString());
+            scanner.close();
         }
 
-        double vat = total * VAT_RATE;
-        double grandTotal = total + vat;
 
-        receipt.append("---------------------------\n");
-        receipt.append(String.format("Subtotal: %.2f\n", total));
-        receipt.append(String.format("VAT (12%%): %.2f\n", vat));
-        receipt.append(String.format("Grand Total: %.2f\n", grandTotal));
-        receipt.append("---------------------------\n");
-
-        System.out.println(receipt);
-
-        saveReceiptToFile(receipt.toString());
-        scanner.close();
     }
 
     /**
