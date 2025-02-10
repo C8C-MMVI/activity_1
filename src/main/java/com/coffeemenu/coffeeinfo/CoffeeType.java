@@ -1,6 +1,6 @@
 package com.coffeemenu.coffeeinfo;
 
-public class CoffeeDescription {
+public class CoffeeType {
     String name;
     String type;
     String size;
@@ -11,4 +11,13 @@ public class CoffeeDescription {
     boolean stock;
     String [] flavorNotes;
     String brewMethod;
+
+//    public double calculatePrice(String size){
+//        this.size = size;
+//    }
+
+//    public boolean checkStock(){
+//
+//    }
 }
+
