@@ -89,6 +89,7 @@ public class CoffeeMain {
     /**
      * Method to save the receipt to a file
      * @param receipt The receipt to save
+     * File saves to a new directory
      */
     private static void saveReceiptToFile(String receipt) {
         File saveDir = new File("target/receipts");
