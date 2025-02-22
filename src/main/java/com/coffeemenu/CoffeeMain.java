@@ -14,38 +14,42 @@ public class CoffeeMain {
                 new String[]{"Caramel", "Creamy"}, "Drip"
         );
 
-        //properties for coffee 1
-        System.out.println("Coffee 1 Details:");
-        System.out.println("Name: " + coffee1.name);
-        System.out.println("Type: " + coffee1.type);
-        System.out.println("Size: " + coffee1.size);
-        System.out.println("Base Price of all coffees: PHP" + coffee1.price);
-        System.out.println("Roast Level: " + coffee1.roastLevel);
-        System.out.println("Origin: " + coffee1.origin);
-        System.out.println("Is Decaf: " + coffee1.isDecaf);
-        System.out.println("Stock: " + coffee1.stock);
-        System.out.println("Flavor Notes: " + String.join(", ", coffee1.flavorNotes));
-        System.out.println("Brew Method: " + coffee1.brewMethod);
-        System.out.println();
-        // use String.format for cleaner code
+        // properties for coffee1 using String.format
+        String coffeeOneProperties = String.format("""
+                Coffee 1 Details:
+                Name: %s
+                Type: %s
+                Size: %s
+                Base Price: %f PHP
+                Roast Level: %s
+                Origin: %s
+                Is Decaf: %b
+                Stock: %d
+                Flavor Notes: %s
+                Brew Method: %s \n
+                """, coffee1.name, coffee1.type, coffee1.size, coffee1.price, coffee1.roastLevel,
+                coffee1.origin, coffee1.isDecaf, coffee1.stock, coffee1.flavorNotes, coffee1.brewMethod);
+        System.out.print(coffeeOneProperties);
 
-        //properties for coffee 2
-        System.out.println("Coffee 2 Details:");
-        System.out.println("Name: " + coffee2.name);
-        System.out.println("Type: " + coffee2.type);
-        System.out.println("Size: " + coffee2.size);
-        System.out.println("Base Price of all coffees: PHP" + coffee2.price);
-        System.out.println("Roast Level: " + coffee2.roastLevel);
-        System.out.println("Origin: " + coffee2.origin);
-        System.out.println("Is Decaf: " + coffee2.isDecaf);
-        System.out.println("Stock: " + coffee2.stock);
-        System.out.println("Flavor Notes: " + String.join(", ", coffee2.flavorNotes));
-        System.out.println("Brew Method: " + coffee2.brewMethod);
-        System.out.println();
-        // use String.format for cleaner code
+        // properties for coffee2 using String.format
+        String coffeeTwoProperties = String.format("""
+                Coffee 1 Details:
+                Name: %s
+                Type: %s
+                Size: %s
+                Base Price: %f PHP
+                Roast Level: %s
+                Origin: %s
+                Is Decaf: %b
+                Stock: %d
+                Flavor Notes: %s
+                Brew Method: %s \n
+                """, coffee2.name, coffee2.type, coffee2.size, coffee2.price, coffee2.roastLevel,
+                coffee2.origin, coffee2.isDecaf, coffee2.stock, coffee2.flavorNotes, coffee2.brewMethod);
+        System.out.print(coffeeTwoProperties);
 
-        //methods for coffee 1
-        System.out.println("\n=== Coffee 1 ===");
+        // Methods for coffee 1
+        System.out.println("=== Coffee 1 ===");
         coffee1.describe();
         coffee1.calculatePrice(coffee1.size);
         coffee1.updateStock(5);
@@ -55,8 +59,8 @@ public class CoffeeMain {
         coffee1.changeRoastLevel("Light");
         coffee1.discount(15);
 
-        //methods for coffee 2
-        System.out.println("\n=== Coffee 2 ===");
+        // Methods for coffee 2
+        System.out.println("=== Coffee 2 ===");
         coffee2.describe();
         coffee2.calculatePrice(coffee2.size);
         coffee2.updateStock(-2);
@@ -66,39 +70,45 @@ public class CoffeeMain {
         coffee2.changeRoastLevel("Dark");
         coffee2.discount(10);
 
-        //updated coffee 1 details
+        // updated coffee1 details using String.format
         System.out.println();
         System.out.println("Updated Coffee 1 Details:");
         coffee1.describe();
-        System.out.println("Name: " + coffee1.name);
-        System.out.println("Type: " + coffee1.type);
-        System.out.println("Size: " + coffee1.size);
-        System.out.println("Updated Price: PHP" + coffee1.price);
-        System.out.println("Roast Level: " + coffee1.roastLevel);
-        System.out.println("Origin: " + coffee1.origin);
-        System.out.println("Is Decaf: " + coffee1.isDecaf);
-        System.out.println("Stock: " + coffee1.stock);
-        System.out.println("Flavor Notes: " + String.join(", ", coffee1.flavorNotes));
-        System.out.println("Brew Method: " + coffee1.brewMethod);
-        System.out.println();
-        // use String.format for cleaner code
+        String coffeeOneUpdate = String.format("""
+                Coffee 1 Details:
+                Name: %s
+                Type: %s
+                Size: %s
+                Updated Price: %f PHP
+                Roast Level: %s
+                Origin: %s
+                Is Decaf: %b
+                Stock: %d
+                Flavor Notes: %s
+                Brew Method: %s
+                """, coffee1.name, coffee1.type, coffee1.size, coffee1.price, coffee1.roastLevel,
+                coffee1.origin, coffee1.isDecaf, coffee1.stock, String.join(", ", coffee1.flavorNotes), coffee1.brewMethod);
+        System.out.print(coffeeOneUpdate);
 
-        //updated coffee 2 details
+        // updated coffee2 details using String.format
         System.out.println();
         System.out.println("Updated Coffee 2 Details:");
         coffee1.describe();
-        System.out.println("Name: " + coffee2.name);
-        System.out.println("Type: " + coffee2.type);
-        System.out.println("Size: " + coffee2.size);
-        System.out.println("Updated Price: PHP" + coffee2.price);
-        System.out.println("Roast Level: " + coffee2.roastLevel);
-        System.out.println("Origin: " + coffee2.origin);
-        System.out.println("Is Decaf: " + coffee2.isDecaf);
-        System.out.println("Stock: " + coffee2.stock);
-        System.out.println("Flavor Notes: " + String.join(", ", coffee2.flavorNotes));
-        System.out.println("Brew Method: " + coffee2.brewMethod);
-        System.out.println();
-        // use String.format for cleaner code
+        String coffeeTwoUpdate = String.format("""
+                Coffee 1 Details:
+                Name: %s
+                Type: %s
+                Size: %s
+                Updated Price: %f PHP
+                Roast Level: %s
+                Origin: %s
+                Is Decaf: %b
+                Stock: %d
+                Flavor Notes: %s
+                Brew Method: %s
+                """, coffee2.name, coffee2.type, coffee2.size, coffee2.price, coffee2.roastLevel,
+                coffee2.origin, coffee2.isDecaf, coffee2.stock, String.join(", ", coffee2.flavorNotes), coffee2.brewMethod);
+        System.out.print(coffeeTwoUpdate);
     }
 }
 
