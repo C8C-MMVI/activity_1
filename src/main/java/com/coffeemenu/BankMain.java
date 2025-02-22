@@ -1,7 +1,7 @@
 package com.coffeemenu;
 
 // Main class
-public class Main {
+public class BankMain {
     public static void main(String[] args) {
         BankAccount account = new BankAccount("123456789");
         account.deposit(1000);
